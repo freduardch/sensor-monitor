@@ -1,3 +1,21 @@
-<p>
-  login works!
-</p>
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" class="container" fxLayout="column" fxLayoutAlign="center center">
+  <div fxLayout="column" fxLayoutAlign="center">
+    <h1>Ingresar a la aplicación</h1>
+    <mat-form-field>
+      <input matInput required ngModel name="email"
+        #email="ngModel"
+        placeholder="Correo" type="email" email>
+      <mat-error *ngIf="!f.valid && email.touched">
+        Por favor ingresa un correo válido.
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput required ngModel
+      name="password" (keyup.enter)="onSubmit(f)"
+      #password="ngModel"
+      placeholder="Contraseña" type="password">
+    </mat-form-field>
+    <button mat-raised-button [disabled]="!f.valid"
+      type="submit" color="primary">Acceder</button>
+  </div>
+</form>
