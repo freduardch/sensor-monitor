@@ -1,3 +1,13 @@
-<p>
-  sidenav-list works!
-</p>
+<mat-nav-list fxLayout="column" 
+fxLayoutAlign="flex-start"    
+class="nav-list" >
+<!-- <a mat-list-item class="item-color"       
+  *ngIf="newsEnabled"
+  (click)="onClose()"
+  routerLink="/notifications" >
+    <mat-icon matBadge="{{ notificationService.notificationsQuantity  > 0 ? notificationService.notificationsQuantity : null }}" 
+      matBadgeOverlap="true"
+      matBadgeColor="accent">notifications</mat-icon>
+    <span class="nav-caption">Notificaciones</span>
+</a> -->
+</mat-nav-list>
