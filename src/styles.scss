@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+.container {
+  padding: 15px;
+  margin-bottom: 100px;
+  max-width: 100vw;  
+  @media screen and (max-width: 760px){
+    padding: 10px 0px;
+  }
+}
+
+.columna {
+  width: 500px;
+  max-width: 90vw;
+}
+
+// @media screen and (max-width: 760px) {
+//   .container {
+//     padding:10px 0px;
+//   }
+// }
