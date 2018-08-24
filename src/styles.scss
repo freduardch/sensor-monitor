@@ -1,6 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
+html, body {
+  margin: 0;   
+  font-family: 'Roboto', Helvetica, sans-serif, Regular;
+  height: 100%;
+}
+
 .container {
   padding: 15px;
   margin-bottom: 100px;
@@ -20,3 +26,10 @@
 //     padding:10px 0px;
 //   }
 // }
+.tooltip{
+  width: 180px;
+}
+
+.pointer {
+  cursor: pointer;
+}
