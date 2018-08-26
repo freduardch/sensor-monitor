@@ -2,7 +2,7 @@ export interface Device {
   id?: string;
   name?: string;
   location?: string;
-  status?: string;
+  status?: boolean;
   temperature?: number;
   humidity?: number;
   isMonitorized?: boolean;
