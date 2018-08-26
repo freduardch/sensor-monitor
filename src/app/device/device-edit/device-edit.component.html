@@ -1,3 +1,52 @@
-<p>
-  device-edit works!
-</p>
+<form (ngSubmit)="onEditDevice(f)" #f="ngForm" 
+  fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="gappx">
+  <div class="deviceList"
+    fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="gappx">
+    <h1>Editar dispositivo</h1>
+    <button mat-raised-button routerLink="/device-list">CANCELAR</button>
+  </div>
+  <mat-card fxLayout="column">
+    <mat-form-field>
+      <input matInput placeholder="Nombre del dispositivo"
+        name="name" #name="ngModel" ngModel
+        [(ngModel)]="currentDevice.name">
+    </mat-form-field>
+    
+    <mat-form-field>
+      <input matInput placeholder="Ubicación"
+        name="location" #location="ngModel" ngModel
+        [(ngModel)]="currentDevice.location">
+    </mat-form-field>
+    
+    <div fxLayout="row wrap" fxLayoutAlign="space-between start">
+      <mat-slide-toggle name="isMonitorized"
+        [(ngModel)]="currentDevice.isMonitorized">
+        ¿Es monitoreado?</mat-slide-toggle>
+  
+      <mat-slide-toggle name="status" [(ngModel)]="currentDevice.status">
+        <span *ngIf="currentDevice.status">Encendido</span>
+        <span *ngIf="!currentDevice.status">Apagado</span>
+      </mat-slide-toggle>
+    </div>
+    
+    <mat-form-field>
+      <input matInput placeholder="Creado por" disabled
+        name="creator" #creator="ngModel" ngModel
+        [(ngModel)]="currentDevice.creator">
+    </mat-form-field>
+    
+    <mat-form-field>
+      <input matInput placeholder="Creado en" disabled
+      name="dateCreated" #dateCreated="ngModel" ngModel
+      [ngModel]="currentDevice.dateCreated | date">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Código del dispositivo" disabled
+      name="deviceCode" #deviceCode="ngModel" ngModel
+      [(ngModel)]="currentDevice.id">
+    </mat-form-field>
+    
+    <button mat-raised-button>Editar</button>
+  </mat-card>
+</form>
