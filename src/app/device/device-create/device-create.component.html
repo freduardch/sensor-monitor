@@ -3,7 +3,7 @@
   <div class="deviceList"
     fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="gappx">
       <h1>Crear dispositivo</h1>
-      <button mat-raised-button routerLink="/device-list">CANCELAR</button>
+      <button mat-raised-button routerLink="/">CANCELAR</button>
   </div>
     <mat-card fxLayout="column">
       <mat-form-field>
@@ -30,7 +30,7 @@
 
       <button mat-raised-button
         fxFlexAlign=" flex-start"
-        routerLink="/device-list"
+        routerLink="/"
         *ngIf="wasCreated" 
         type="button" color="accent">TERMINAR</button>
     </mat-card>

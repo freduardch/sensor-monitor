@@ -41,7 +41,7 @@ export class DeviceCreateComponent implements OnInit {
       duration: 3000
     });
 
-    this.router.navigate(['/device-list']);
+    this.router.navigate(['/']);
   }
 
 }

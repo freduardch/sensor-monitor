@@ -60,8 +60,9 @@ import { DeviceEditComponent } from './device/device-edit/device-edit.component'
 import { DeviceMonitorComponent } from './device/device-monitor/device-monitor.component';
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
-  { path: 'device-list', component: DeviceListComponent },
+  { path: '', component: DeviceListComponent },
+  // { path: '', component: LoginComponent },
+  // { path: 'device-list', component: DeviceListComponent },
   { path: 'device-create', component: DeviceCreateComponent },
   { path: 'device/:id', component: DeviceEditComponent },
   { path: 'device-monitor', component: DeviceMonitorComponent },
