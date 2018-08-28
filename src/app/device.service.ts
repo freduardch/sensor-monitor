@@ -61,6 +61,10 @@ export class DeviceService {
           isMonitorized: document.payload.data().isMonitorized,
           dateCreated: document.payload.data().dateCreated,
           creator: document.payload.data().creator,
+          temperatureLimit: document.payload.data().temperatureLimit,
+          temperatureUnits: document.payload.data().temperatureUnits,
+          humidityLimit: document.payload.data().humidityLimit,
+          humidityUnits: document.payload.data().humidityUnits,
         };
       }));
   }
@@ -82,6 +86,10 @@ export class DeviceService {
               isMonitorized: document.payload.doc.data().isMonitorized,
               dateCreated: document.payload.doc.data().dateCreated,
               creator: document.payload.doc.data().creator,
+              temperatureLimit: document.payload.doc.data().temperatureLimit,
+              temperatureUnits: document.payload.doc.data().temperatureUnits,
+              humidityLimit: document.payload.doc.data().humidityLimit,
+              humidityUnits: document.payload.doc.data().humidityUnits,
             };
           });
         }));
@@ -103,6 +111,10 @@ export class DeviceService {
               isMonitorized: document.payload.doc.data().isMonitorized,
               dateCreated: document.payload.doc.data().dateCreated,
               creator: document.payload.doc.data().creator,
+              temperatureLimit: document.payload.doc.data().temperatureLimit,
+              temperatureUnits: document.payload.doc.data().temperatureUnits,
+              humidityLimit: document.payload.doc.data().humidityLimit,
+              humidityUnits: document.payload.doc.data().humidityUnits,
             };
           });
         }));
