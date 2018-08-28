@@ -8,4 +8,8 @@ export interface Device {
   isMonitorized?: boolean;
   dateCreated?: number;
   creator?: string;
+  temperatureLimit?: number;
+  temperatureUnits?: number;
+  humidityLimit?: number;
+  humidityUnits?: number;
 }
