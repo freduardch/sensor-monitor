@@ -1,9 +1,16 @@
 <mat-nav-list fxLayout="column" 
-fxLayoutAlign="flex-start"    
+fxLayoutAlign="flex-start"
+fxLayoutGap="30px"
 class="nav-list" >
-<a mat-list-item routerLink="/device-monitor" (click)="onClose()">Monitor</a>
-<a mat-list-item routerLink="/device-create" (click)="onClose()">Crear dispositivo</a>
-<a mat-list-item routerLink="/" (click)="onClose()">Cerrar sesión</a>
+<a mat-list-item routerLink="/device-monitor" (click)="onClose()">
+  <mat-icon>dvr</mat-icon> 
+  Monitor</a>
+<a mat-list-item routerLink="/device-create" (click)="onClose()">
+  <mat-icon>add_to_queue</mat-icon>
+   Crear dispositivo</a>
+<a mat-list-item routerLink="/device-monitor" (click)="onClose()">
+  <mat-icon>power_settings_new</mat-icon>
+  Cerrar sesión</a>
 <!-- <a mat-list-item class="item-color"       
   *ngIf="newsEnabled"
   (click)="onClose()"
