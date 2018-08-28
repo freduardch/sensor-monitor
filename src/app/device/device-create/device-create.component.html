@@ -7,12 +7,12 @@
   </div>
     <mat-card fxLayout="column">
       <mat-form-field>
-        <input matInput placeholder="Nombre del dispositivo"
+        <input matInput placeholder="Nombre del dispositivo" required
           name="name" #name="ngModel" ngModel>
       </mat-form-field>
       
       <mat-form-field>
-        <input matInput placeholder="Ubicación"
+        <input matInput placeholder="Ubicación" required
           name="location" #location="ngModel" ngModel>
       </mat-form-field>
       
@@ -25,11 +25,13 @@
           [(ngModel)]="newId">
       </mat-form-field>
 
-      <button mat-raised-button fxFlexAlign=" flex-end">CREAR</button>
+      <button mat-raised-button fxFlexAlign=" flex-end" color="primary"
+        [disabled]="!f.valid">CREAR</button>
 
-      <button mat-raised-button 
+      <button mat-raised-button
+        fxFlexAlign=" flex-start"
         routerLink="/device-list"
         *ngIf="wasCreated" 
-        type="button">TERMINAR</button>
+        type="button" color="accent">TERMINAR</button>
     </mat-card>
   </form>

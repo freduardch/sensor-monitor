@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { Device } from '../../device.model';
 import * as moment from 'moment';
 import { MatSnackBar } from '@angular/material';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-device-create',
@@ -15,7 +16,8 @@ export class DeviceCreateComponent implements OnInit {
   wasCreated = false;
 
   constructor(private deviceService: DeviceService,
-  public snackbar: MatSnackBar) { }
+  private snackbar: MatSnackBar,
+  private router: Router) { }
 
   ngOnInit() {
   }
@@ -38,6 +40,8 @@ export class DeviceCreateComponent implements OnInit {
     this.snackbar.open('Dispositivo creado...', null, {
       duration: 3000
     });
+
+    this.router.navigate(['/device-list']);
   }
 
 }
