@@ -10,6 +10,7 @@ import { Device } from '../../device.model';
   styleUrls: ['./device-list.component.scss']
 })
 export class DeviceListComponent implements OnInit, OnDestroy {
+  isLoaded = false;
   dataSource = new MatTableDataSource();
 
   displayedColumns = ['name', 'location', 'status', 'temperature', 'humidity'];
@@ -22,6 +23,7 @@ export class DeviceListComponent implements OnInit, OnDestroy {
       .subscribe((devices: Device[]) => {
         this.dataSource = new MatTableDataSource(devices);
         console.log(this.dataSource);
+        this.isLoaded = true;
       }));
   }
 

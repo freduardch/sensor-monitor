@@ -1,10 +1,11 @@
 <div class="container" fxLayout="column" fxLayoutAlign="start center">
-  <div class="deviceList"
+  <mat-spinner *ngIf="!isLoaded"></mat-spinner>
+  <div class="deviceList" *ngIf="isLoaded"
     fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="gappx">
     <h1>Lista de dispositivos</h1>
     <button mat-raised-button routerLink="/device-monitor">Ir al monitor</button>
   </div>
-  <mat-card>
+  <mat-card  *ngIf="isLoaded">
     <mat-table #table1
         [dataSource]="dataSource" matSort>
         
