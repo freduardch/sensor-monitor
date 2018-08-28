@@ -1,3 +1,41 @@
-<p>
-  device-monitor works!
-</p>
+<div class="container" fxLayout="column" fxLayoutAlign="start center">
+  <mat-spinner *ngIf="!isLoaded"></mat-spinner>
+  <h1 *ngIf="isLoaded">Monitor de dispositivos</h1>
+  <div *ngIf="isLoaded">
+    <mat-card *ngFor="let device of allDevices" fxLayout="column">
+      <h2>{{device.name}}</h2>
+      <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="gappx">
+        <div fxLayout="column" fxLayoutAlign="flex-end center" *ngIf="device.status">
+          <h3>Temperatura</h3>
+          <!-- Si está debajo del límite -->
+          <mat-progress-bar *ngIf="device.temperature < device.temperatureLimit"
+          matTooltip="{{device.temperature}}"
+          mode="determinate"
+          value="{{device.temperature}}">
+        </mat-progress-bar>
+        <!-- Si está encima del límite -->
+        <mat-progress-bar *ngIf="device.temperature > device.temperatureLimit"
+          mode="determinate"
+          matTooltip="{{device.temperature}}"
+          color="warn"
+          value="{{device.temperature}}">
+        </mat-progress-bar>
+      </div>
+      <div fxLayout="column" fxLayoutAlign="end center" *ngIf="device.status">
+        <h3>Humedad</h3>
+        <mat-progress-bar *ngIf="device.humidity < device.humidityLimit"
+        mode="determinate"
+        matTooltip="{{device.humidity}}"
+        value="{{device.humidity}}">
+      </mat-progress-bar>
+      <mat-progress-bar *ngIf="device.humidity > device.humidityLimit"
+        mode="determinate"
+        matTooltip="{{device.humidity}}"
+        color="warn"
+        value="{{device.humidity}}">
+      </mat-progress-bar>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</div>
