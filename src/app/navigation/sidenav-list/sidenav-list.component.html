@@ -2,22 +2,16 @@
 fxLayoutAlign="flex-start"
 fxLayoutGap="30px"
 class="nav-list" >
+<a mat-list-item routerLink="/" (click)="onClose()">
+  <mat-icon>home</mat-icon> 
+  Inicio</a>
 <a mat-list-item routerLink="/device-monitor" (click)="onClose()">
   <mat-icon>dvr</mat-icon> 
   Monitor</a>
 <a mat-list-item routerLink="/device-create" (click)="onClose()">
   <mat-icon>add_to_queue</mat-icon>
    Crear dispositivo</a>
-<a mat-list-item routerLink="/device-monitor" (click)="onClose()">
+<!-- <a mat-list-item routerLink="/device-monitor" (click)="onClose()">
   <mat-icon>power_settings_new</mat-icon>
-  Cerrar sesión</a>
-<!-- <a mat-list-item class="item-color"       
-  *ngIf="newsEnabled"
-  (click)="onClose()"
-  routerLink="/notifications" >
-    <mat-icon matBadge="{{ notificationService.notificationsQuantity  > 0 ? notificationService.notificationsQuantity : null }}" 
-      matBadgeOverlap="true"
-      matBadgeColor="accent">notifications</mat-icon>
-    <span class="nav-caption">Notificaciones</span>
-</a> -->
+  Cerrar sesión</a> -->
 </mat-nav-list>
