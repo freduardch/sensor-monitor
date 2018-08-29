@@ -47,7 +47,7 @@ export class DeviceService {
    * @param id
    */
   getDeviceById(id: string): Observable<Device> {
-    return this.database.doc<Device>(`datos/${id}`)
+    return this.database.doc<Device>(`devices/${id}`)
     .snapshotChanges()
     .pipe(
       map((document) => {
@@ -70,7 +70,7 @@ export class DeviceService {
   }
 
   getAllMonitoredDevices(): Observable<Device[]> {
-    return this.database.collection<Device>(`datos`,
+    return this.database.collection<Device>(`devices`,
       ref => ref.where('isMonitorized', '==', true))
       .snapshotChanges()
       .pipe(
@@ -96,7 +96,7 @@ export class DeviceService {
   }
 
   getAllDevices(): Observable<Device[]> {
-    return this.database.collection<Device>(`datos`)
+    return this.database.collection<Device>(`devices`)
       .snapshotChanges()
       .pipe(
         map((docArray) => {
