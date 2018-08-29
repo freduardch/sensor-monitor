@@ -20,7 +20,6 @@ export class DeviceMonitorComponent implements OnInit, OnDestroy {
     .subscribe((devices: Device[]) => {
       this.allDevices = devices;
       this.isLoaded = true;
-      // console.log(this.allDevices);
     }));
   }
 
