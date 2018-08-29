@@ -1,9 +1,9 @@
 <div class="container" fxLayout="column" fxLayoutAlign="start center">
   <mat-spinner *ngIf="!isLoaded"></mat-spinner>
   <div class="deviceList" *ngIf="isLoaded"
-    fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="gappx">
+    fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="gappx">
     <h1>Lista de dispositivos</h1>
-    <button mat-raised-button routerLink="/device-monitor">Ir al monitor</button>
+    <!-- <button mat-raised-button routerLink="/device-monitor">Ir al monitor</button> -->
   </div>
   <mat-card  *ngIf="isLoaded">
     <mat-table #table1
@@ -11,35 +11,15 @@
         
         <ng-container matColumnDef="name">
           <mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</mat-header-cell>
-          <mat-cell *matCellDef="let element" routerLink="/device/{{element.id}}">
+          <mat-cell matTooltip="Editar" *matCellDef="let element" routerLink="/device/{{element.id}}">
             {{element.name}}
           </mat-cell>
         </ng-container>
         
         <ng-container matColumnDef="location">
-          <mat-header-cell *matHeaderCellDef mat-sort-header>Ubicación</mat-header-cell>
-          <mat-cell *matCellDef="let element">
+          <mat-header-cell *matHeaderCellDef mat-sort-header fxHide.xs>Ubicación</mat-header-cell>
+          <mat-cell *matCellDef="let element" fxHide.xs>
             {{element.location}}
-          </mat-cell>
-        </ng-container>
-        
-        <ng-container matColumnDef="temperature">
-          <mat-header-cell *matHeaderCellDef mat-sort-header>Temperatura</mat-header-cell>
-          <mat-cell *matCellDef="let element">
-            <mat-progress-bar
-              mode="determinate"
-              [value]="element.temperature">
-            </mat-progress-bar>
-          </mat-cell>
-        </ng-container>
-        
-        <ng-container matColumnDef="humidity">
-          <mat-header-cell *matHeaderCellDef mat-sort-header>Humedad</mat-header-cell>
-          <mat-cell *matCellDef="let element">
-            <mat-progress-bar
-              mode="determinate"
-              [value]="element.humidity">
-            </mat-progress-bar>
           </mat-cell>
         </ng-container>
         
@@ -48,6 +28,14 @@
           <mat-cell *matCellDef="let element">
             <button mat-icon-button *ngIf="element.status" disabled><mat-icon style="color: #5ff442">brightness_1</mat-icon></button>
             <button mat-icon-button *ngIf="!element.status" disabled><mat-icon style="color: #ef0404">brightness_1</mat-icon></button>
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="isMonitorized">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Monitoreado</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <button mat-icon-button *ngIf="element.isMonitorized" disabled><mat-icon>done</mat-icon></button>
+            <button mat-icon-button *ngIf="!element.isMonitorized" disabled><mat-icon>clear</mat-icon></button>
           </mat-cell>
         </ng-container>
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

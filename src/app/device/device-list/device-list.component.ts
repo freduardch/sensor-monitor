@@ -13,7 +13,7 @@ export class DeviceListComponent implements OnInit, OnDestroy {
   isLoaded = false;
   dataSource = new MatTableDataSource();
 
-  displayedColumns = ['name', 'location', 'status', 'temperature', 'humidity'];
+  displayedColumns = ['name', 'location', 'status', 'isMonitorized'];
   subscriptions: Subscription[] = [];
 
   constructor(private deviceService: DeviceService) { }
@@ -22,7 +22,7 @@ export class DeviceListComponent implements OnInit, OnDestroy {
     this.subscriptions.push(this.deviceService.getAllDevices()
       .subscribe((devices: Device[]) => {
         this.dataSource = new MatTableDataSource(devices);
-        console.log(this.dataSource);
+        // console.log(this.dataSource);
         this.isLoaded = true;
       }));
   }
