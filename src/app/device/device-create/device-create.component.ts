@@ -26,18 +26,20 @@ export class DeviceCreateComponent implements OnInit {
     const device: Device = {
       name: form.value.name,
       location: form.value.location,
-      status: form.value.status,
+      status: true,
       isMonitorized: form.value.isMonitorized,
       creator: 'Freddy Chan',
       dateCreated: moment (Date.now()).valueOf(),
+      temperatureUnits: form.value.temperatureUnits,
+      temperatureLimit: form.value.temperatureLimit,
+      humidityLimit: form.value.humidityLimit
     };
 
-    console.log(device);
-    // this.id = this.deviceService.createDevice(device);
-    this.newId = '12345678';
+    // console.log(device);
+    this.newId = this.deviceService.createDevice(device);
     this.wasCreated = true;
 
-    this.snackbar.open('Dispositivo creado...', null, {
+    this.snackbar.open('Dispositivo creado exitosamente', null, {
       duration: 3000
     });
 

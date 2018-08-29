@@ -8,7 +8,7 @@
       <h1>Editar dispositivo</h1>
       <button mat-raised-button routerLink="/">CANCELAR</button>
     </div>
-    <mat-card fxLayout="column">
+    <mat-card fxLayout="column" fxLayoutGap="30px">
       <mat-form-field>
         <input matInput placeholder="Nombre del dispositivo" required
           name="name" #name="ngModel" ngModel
@@ -24,7 +24,7 @@
       <div fxLayout="row wrap" fxLayoutAlign="space-between start">
         <mat-slide-toggle name="isMonitorized"
           [(ngModel)]="currentDevice.isMonitorized">
-          ¿Es monitoreado?</mat-slide-toggle>
+          ¿Está siendo monitoreado?</mat-slide-toggle>
     
         <mat-slide-toggle name="status" [(ngModel)]="currentDevice.status">
           <span *ngIf="currentDevice.status">Encendido</span>
@@ -32,25 +32,54 @@
         </mat-slide-toggle>
       </div>
       
-      <mat-form-field>
-        <input matInput placeholder="Creado por" disabled
-          name="creator" #creator="ngModel" ngModel
-          [(ngModel)]="currentDevice.creator">
-      </mat-form-field>
-      
-      <mat-form-field>
-        <input matInput placeholder="Creado en" disabled
-        name="dateCreated" #dateCreated="ngModel" ngModel
-        [ngModel]="currentDevice.dateCreated | date">
-      </mat-form-field>
+      <mat-select placeholder="Unidad de temperatura" name="unit"
+          #unit="ngModel" [(ngModel)]="currentDevice.temperatureUnits">
+          <mat-option [value]="0">
+            Celsius
+          </mat-option>
+          <!-- <mat-option [value]="1">
+            Fahrenheit
+          </mat-option>
+          <mat-option [value]="2">
+            Kelvin
+          </mat-option> -->
+        </mat-select>
   
-      <mat-form-field>
-        <input matInput placeholder="Código del dispositivo" disabled
-        name="deviceCode" #deviceCode="ngModel" ngModel
-        [(ngModel)]="currentDevice.id">
-      </mat-form-field>
-      
-      <button mat-raised-button fxFlexAlign=" flex-end" color="primary">Editar</button>
+        <mat-form-field>
+          <input matInput placeholder="Límite de temperatura" 
+            name="temperatureLimit" #temperatureLimit="ngModel" ngModel
+            [(ngModel)]="currentDevice.temperatureLimit"
+            type="number" min="0">
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input matInput placeholder="Límite de humedad" type="number" min="0"
+            name="humidityLimit" #humidityLimit="ngModel" ngModel
+            [(ngModel)]="currentDevice.humidityLimit">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Código del dispositivo" disabled
+            name="deviceCode" #deviceCode="ngModel" ngModel
+            [(ngModel)]="currentDevice.id">
+          </mat-form-field>    
+
+          <mat-form-field>
+            <input matInput placeholder="Creado por" disabled
+              name="creator" #creator="ngModel" ngModel
+              [(ngModel)]="currentDevice.creator">
+          </mat-form-field>
+            
+          <mat-form-field>
+            <input matInput placeholder="Creado en" disabled
+            name="dateCreated" #dateCreated="ngModel" ngModel
+            [ngModel]="currentDevice.dateCreated | date">
+          </mat-form-field>
+        
+      <div fxLayout="row" fxLayoutAlign="space-between start">
+        <button mat-raised-button color="warn" type="button" (click)="onDeleteDevice()">Eliminar</button>
+        <button mat-raised-button color="primary">Editar</button>
+      </div>
     </mat-card>
   </form>
 </div>

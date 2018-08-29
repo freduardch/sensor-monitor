@@ -1,11 +1,11 @@
 <form (ngSubmit)="onCreateDevice(f)" #f="ngForm" 
-  fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="gappx">
+  fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="30px">
   <div class="deviceList"
     fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="gappx">
       <h1>Crear dispositivo</h1>
       <button mat-raised-button routerLink="/">CANCELAR</button>
   </div>
-    <mat-card fxLayout="column">
+    <mat-card fxLayout="column" fxLayoutGap="30px">
       <mat-form-field>
         <input matInput placeholder="Nombre del dispositivo" required
           name="name" #name="ngModel" ngModel>
@@ -16,14 +16,37 @@
           name="location" #location="ngModel" ngModel>
       </mat-form-field>
       
-      <mat-slide-toggle name="isMonitorized">
-        ¿Es monitoreado?</mat-slide-toggle>        
-      
-      <mat-form-field *ngIf="wasCreated">
-        <input matInput placeholder="Código de dispositivo" disabled
-          name="id" #id="ngModel" ngModel
-          [(ngModel)]="newId">
+      <mat-slide-toggle name="isMonitorized" #isMonitorized="ngModel" ngModel value="false">
+        ¿Está siendo monitoreado?</mat-slide-toggle>        
+
+      <mat-select placeholder="Unidad de temperatura" name="temperatureUnits" 
+        #temperatureUnits="ngModel" ngModel required> 
+        <mat-option [value]="0">
+          Celsius
+        </mat-option>
+        <!-- <mat-option [value]="1">
+          Fahrenheit
+        </mat-option>
+        <mat-option [value]="2">
+          Kelvin
+        </mat-option> -->
+      </mat-select>
+
+      <mat-form-field>
+        <input matInput placeholder="Límite de temperatura" type="number" min="0" required
+          name="temperatureLimit" #temperatureLimit="ngModel" ngModel>
       </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Límite de humedad" type="number" min="0" required
+          name="humidityLimit" #humidityLimit="ngModel" ngModel>
+      </mat-form-field>
+
+      <mat-form-field *ngIf="wasCreated">
+          <input matInput placeholder="Código de dispositivo" disabled
+            name="id" #id="ngModel" ngModel
+            [(ngModel)]="newId">
+        </mat-form-field>
 
       <button mat-raised-button fxFlexAlign=" flex-end" color="primary"
         [disabled]="!f.valid">CREAR</button>

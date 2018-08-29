@@ -54,9 +54,18 @@ export class DeviceEditComponent implements OnInit, OnDestroy {
       status: form.value.status,
     };
 
-    // this.deviceService.updateDevice(this.currentDeviceId, device);
+    this.deviceService.updateDevice(this.currentDeviceId, device);
 
-    this.snackbar.open('Dispositivo editado exitosamente...', null, {
+    this.snackbar.open('Dispositivo editado exitosamente', null, {
+      duration: 3000
+    });
+
+    this.router.navigate(['/']);
+  }
+
+  onDeleteDevice() {
+    this.deviceService.deleteDevice(this.currentDeviceId);
+    this.snackbar.open('El dispositivo ha sido eliminado', null, {
       duration: 3000
     });
 
